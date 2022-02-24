@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<script src="../js/pixi.min.js"></script>
+<style>
+    body {
+        height: 100%;
+    }
+    canvas {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+</style>
+<body>
+    <script type="text/javascript">
+        // 跳过pixi在控制台输出的广告
+        PIXI.utils.skipHello();
+        // 创建应用程序
+        let app = new PIXI.Application({ resizeTo: window });
+        // 将视图添加到 DOM
+        document.body.appendChild(app.view);
+
+        const bg = PIXI.Texture.from('./assets/bg.jpg');
+        // bg.baseTexture.resource.source.loop = true;
+        const sprite = new PIXI.Sprite(bg);
+        sprite.preload = 'auto';
+        // Stetch the fullscreen
+        sprite.width = app.screen.width;
+        sprite.height = app.screen.height;
+        app.stage.addChild(sprite);
+    </script>
+</body>
+</html>
